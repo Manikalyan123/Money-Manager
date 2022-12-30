@@ -6,7 +6,7 @@ const TransactionItem = props => {
   const {id, title, amount, type} = transaction
 
   const onDelete = () => {
-    onDeleteTransaction(id)
+    onDeleteTransaction(amount, id)
   }
   return (
     <li className="listOrder">

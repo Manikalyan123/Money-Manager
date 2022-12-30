@@ -24,16 +24,36 @@ class MoneyManager extends Component {
     TransactionsList: List,
     title: '',
     amount: '',
-    type: transactionTypeOptions[0].displayText,
+    type: 'Income',
     expense: 0,
     income: 0,
   }
 
-  onDeleteTransaction = id => {}
+  onDeleteTransaction = (amount, id) => {
+    const {TransactionsList} = this.state
+    const onDeleteList = TransactionsList.filter(each => each.id !== id)
+    this.setState({TransactionsList: onDeleteList})
+
+    const deletedTransactionDetails = TransactionsList.filter(
+      each => each.id === id,
+    )
+    console.log(deletedTransactionDetails[0].amount)
+    if (deletedTransactionDetails[0].type === 'Income') {
+      this.setState(prevState => ({
+        income:
+          prevState.income - parseInt(deletedTransactionDetails[0].amount),
+      }))
+    } else {
+      this.setState(prevState => ({
+        expense:
+          prevState.expense - parseInt(deletedTransactionDetails[0].amount),
+      }))
+    }
+  }
 
   onAddTransaction = event => {
     event.preventDefault()
-    const {TransactionsList, title, amount, type} = this.state
+    const {title, amount, type} = this.state
 
     if (type === 'Income') {
       this.setState(prevState => ({income: prevState.income + amount}))
@@ -72,6 +92,7 @@ class MoneyManager extends Component {
 
   render() {
     const {TransactionsList, title, amount, type, income, expense} = this.state
+
     return (
       <div className="main-cont">
         <div className="top-cont">
@@ -83,7 +104,7 @@ class MoneyManager extends Component {
             <img src="" alt="" />
             <div className="text-cont">
               <p1>Your balance</p1>
-              <p1>{income - expense}</p1>
+              <p1>{parseInt(income - expense)}</p1>
             </div>
           </div>
 
@@ -91,7 +112,7 @@ class MoneyManager extends Component {
             <img src="" alt="" />
             <div className="text-cont">
               <p1>Your Income</p1>
-              <p1>Rs {income}</p1>
+              <p1>Rs {parseInt(income)}</p1>
             </div>
           </div>
 
@@ -99,7 +120,7 @@ class MoneyManager extends Component {
             <img src="" alt="" />
             <div className="text-cont">
               <p1>Your Expenses</p1>
-              <p1>Rs {expense}</p1>
+              <p1>Rs {parseInt(expense)}</p1>
             </div>
           </div>
         </div>
@@ -142,7 +163,11 @@ class MoneyManager extends Component {
             </div>
             <ul>
               {TransactionsList.map(each => (
-                <TransactionItem transaction={each} key={each.id} />
+                <TransactionItem
+                  transaction={each}
+                  key={each.id}
+                  onDeleteTransaction={this.onDeleteTransaction}
+                />
               ))}
             </ul>
           </div>
