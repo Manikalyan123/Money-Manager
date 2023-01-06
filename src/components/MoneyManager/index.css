@@ -1,9 +1,19 @@
 /* Write your CSS here */
-.transaction-column {
-  width: 23vw;
+.main-cont {
+  padding: 20px;
+}
+.listOrder-1 {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
+  height: 48px;
+  list-style-type: none;
+  border: 1px solid #cbd5e1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.trans-paragraph-2 {
+  width: 30%;
 }
 .content-cont {
   display: flex;
@@ -13,10 +23,109 @@
 .small-cont {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px;
+  border-radius: 10px;
+  height: 100px;
+  width: 17vw;
 }
 .small-cont-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.small-img {
+  height: 70px;
+  width: 70px;
+  margin-right: 10px;
+}
+.transaction-passage {
+  font-weight: bold;
+  font-size: 20px;
+}
+#green {
+  background-color: #ecfccb;
+}
+#surf {
+  background-color: #cffafe;
+}
+#pink {
+  background-color: #ede9fe;
+}
+.cards-passage {
+  font-size: 15px;
+  color: #7e858e;
+}
+.top-cont {
+  height: 25vh;
+  width: 95vw;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
+}
+.richard-name {
+  font-size: 25px;
+  color: #334155;
+}
+strong {
+  color: #7c3aed;
+  font-weight: bold;
+}
+.add-trans-name {
+  font-size: 23px;
+  color: #334155;
+}
+.history-name {
+  font-size: 23px;
+  color: #334155;
+}
+.input {
+  height: 25px;
+  width: 25vw;
+  margin-bottom: 10px;
+}
+.select {
+  height: 25px;
+  width: 25vw;
+  margin-bottom: 10px;
+}
+.type-pass {
+  font-size: 17px;
+}
+
+.details {
+  width: 30vw;
+  height: 50vh;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+.add-btn {
+  background-color: #7c3aed;
+  color: white;
+  height: 30px;
+  width: 50px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 7px;
+}
+.transactionList {
+  width: 45vw;
+  height: 50vh;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+.unOrderList {
+  padding-left: 0px;
+  margin: 0px;
 }

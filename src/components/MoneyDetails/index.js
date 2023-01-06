@@ -3,8 +3,8 @@ import './index.css'
 
 const MoneyDetails = props => {
   const {type} = props
-  const {displayText} = type
+  const {displayText, optionId} = type
 
-  return <option>{displayText}</option>
+  return <option value={optionId}>{displayText}</option>
 }
 export default MoneyDetails

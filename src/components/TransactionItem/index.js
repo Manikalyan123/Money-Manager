@@ -10,15 +10,24 @@ const TransactionItem = props => {
   }
   return (
     <li className="listOrder">
-      <p>{title}</p>
-      <p>{amount}</p>
-      <p>{type}</p>
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/money-manager/delete.png "
-        alt="delete"
-        className="delete-image"
-        onClick={onDelete}
-      />
+      <p className="trans-paragraph-1">{title}</p>
+      <p className="trans-paragraph-1">{amount}</p>
+      <p className="trans-paragraph-1">{type}</p>
+      <div>
+        <button
+          test-id="delete"
+          className="delete-button"
+          type="button"
+          onClick={onDelete}
+        >
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/money-manager/delete.png "
+            alt="delete"
+            className="delete-image"
+          />
+        </button>
+      </div>
+
       <hr />
     </li>
   )

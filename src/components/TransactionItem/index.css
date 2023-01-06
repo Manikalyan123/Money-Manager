@@ -1,6 +1,28 @@
 /* Write your CSS here */
 .listOrder {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  width: 43.2vw;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  border-bottom: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
+  border-left: 1px solid #cbd5e1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.transaction-passage {
+  font-weight: bold;
+  font-size: 20px;
+}
+.delete-image {
+  height: 30px;
+  width: 30px;
+}
+.delete-button {
+  background-color: transparent;
+  border: none;
+}
+.trans-paragraph-1 {
+  width: 50%;
 }

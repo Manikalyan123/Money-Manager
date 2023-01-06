@@ -24,6 +24,7 @@ class MoneyManager extends Component {
     TransactionsList: List,
     title: '',
     amount: '',
+    optionId: transactionTypeOptions[0].optionId,
     type: 'Income',
     expense: 0,
     income: 0,
@@ -56,9 +57,13 @@ class MoneyManager extends Component {
     const {title, amount, type} = this.state
 
     if (type === 'Income') {
-      this.setState(prevState => ({income: prevState.income + amount}))
+      this.setState(prevState => ({
+        income: parseInt(prevState.income) + parseInt(amount),
+      }))
     } else {
-      this.setState(prevState => ({expense: prevState.expense + amount}))
+      this.setState(prevState => ({
+        expense: parseInt(prevState.expense) + parseInt(amount),
+      }))
     }
     const newTransaction = {
       id: uuid(),
@@ -70,7 +75,6 @@ class MoneyManager extends Component {
       TransactionsList: [...prevState.TransactionsList, newTransaction],
       title: '',
       amount: '',
-      type: '',
     }))
   }
 
@@ -96,72 +100,111 @@ class MoneyManager extends Component {
     return (
       <div className="main-cont">
         <div className="top-cont">
-          <h1>Hi! Richard</h1>
-          <p>Welcome back to your Money Manager</p>
+          <h1 className="richard-name">Hi! Richard</h1>
+          <p>
+            Welcome back to your <strong>Money Manager</strong>
+          </p>
         </div>
         <div className="small-cont-container">
-          <div className="small-cont">
-            <img src="" alt="" />
+          <div id="green" className="small-cont">
+            <img
+              className="small-img"
+              src="https://assets.ccbp.in/frontend/react-js/money-manager/balance-image.png"
+              alt="balance"
+            />
             <div className="text-cont">
-              <p1>Your balance</p1>
-              <p1>{parseInt(income - expense)}</p1>
+              <p1 test-id="balanceAmount" className="cards-passage">
+                Your Balance
+              </p1>
+              <br />
+              <p1>Rs {parseInt(income - expense)}</p1>
             </div>
           </div>
 
-          <div className="small-cont">
-            <img src="" alt="" />
+          <div id="surf" className="small-cont">
+            <img
+              className="small-img"
+              src="https://assets.ccbp.in/frontend/react-js/money-manager/income-image.png"
+              alt="income"
+            />
             <div className="text-cont">
-              <p1>Your Income</p1>
+              <p1 test-id="incomeAmount" className="cards-passage">
+                Your Income
+              </p1>
+              <br />
               <p1>Rs {parseInt(income)}</p1>
             </div>
           </div>
 
-          <div className="small-cont">
-            <img src="" alt="" />
+          <div id="pink" className="small-cont">
+            <img
+              className="small-img"
+              src="https://assets.ccbp.in/frontend/react-js/money-manager/expenses-image.png "
+              alt="expenses"
+            />
             <div className="text-cont">
-              <p1>Your Expenses</p1>
+              <p1 test-id="expensesAmount" className="cards-passage">
+                Your Expenses
+              </p1>
+              <br />
               <p1>Rs {parseInt(expense)}</p1>
             </div>
           </div>
         </div>
         <div className="content-cont">
           <div className="details">
-            <h1>Transaction</h1>
+            <h1 className="add-trans-name">Add Transaction</h1>
             <form onSubmit={this.onAddTransaction}>
               <label htmlFor="title">TITLE</label>
+              <br />
               <input
                 id="title"
                 className="input"
+                placeholder="TITLE"
                 value={title}
                 onChange={this.onTitleInput}
               />
               <br />
               <label htmlFor="amount">AMOUNT</label>
+              <br />
               <input
                 id="amount"
+                placeholder="AMOUNT"
                 className="input"
                 value={amount}
                 onChange={this.onAmountInput}
               />
               <br />
 
-              <select value={type} onChange={this.onTypeChange}>
+              <label htmlFor="select" className="type-pass">
+                TYPE
+              </label>
+              <br />
+              <select
+                id="select"
+                value={type}
+                className="select"
+                onChange={this.onTypeChange}
+              >
                 {transactionTypeOptions.map(each => (
                   <MoneyDetails type={each} key={each.optionId} />
                 ))}
               </select>
               <br />
-              <button type="submit">Add</button>
+              <button className="add-btn" type="submit">
+                Add
+              </button>
             </form>
           </div>
           <div className="transactionList">
-            <h1>History</h1>
-            <div className="transaction-column">
-              <h1>Title</h1>
-              <h1>Amount</h1>
-              <h1>Type</h1>
-            </div>
-            <ul>
+            <h1 className="history-name">History</h1>
+
+            <ul className="unOrderList">
+              <li className="listOrder-1">
+                <p className="trans-paragraph-2">Title</p>
+                <p className="trans-paragraph-2">Amount</p>
+                <p className="trans-paragraph-2">Type</p>
+              </li>
               {TransactionsList.map(each => (
                 <TransactionItem
                   transaction={each}
