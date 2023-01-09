@@ -11,11 +11,11 @@ const TransactionItem = props => {
   return (
     <li className="listOrder">
       <p className="trans-paragraph-1">{title}</p>
-      <p className="trans-paragraph-1">{amount}</p>
+      <p className="trans-paragraph-1">Rs {amount}</p>
       <p className="trans-paragraph-1">{type}</p>
       <div>
         <button
-          test-id="delete"
+          // test-id="delete"
           className="delete-button"
           type="button"
           onClick={onDelete}

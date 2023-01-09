@@ -113,7 +113,7 @@ class MoneyManager extends Component {
               alt="balance"
             />
             <div className="text-cont">
-              <p1 test-id="balanceAmount" className="cards-passage">
+              <p1 id="balanceAmount" className="cards-passage">
                 Your Balance
               </p1>
               <br />
@@ -128,7 +128,7 @@ class MoneyManager extends Component {
               alt="income"
             />
             <div className="text-cont">
-              <p1 test-id="incomeAmount" className="cards-passage">
+              <p1 id="incomeAmount" className="cards-passage">
                 Your Income
               </p1>
               <br />
@@ -143,7 +143,7 @@ class MoneyManager extends Component {
               alt="expenses"
             />
             <div className="text-cont">
-              <p1 test-id="expensesAmount" className="cards-passage">
+              <p1 id="expensesAmount" className="cards-passage">
                 Your Expenses
               </p1>
               <br />
