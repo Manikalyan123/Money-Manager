@@ -113,11 +113,9 @@ class MoneyManager extends Component {
               alt="balance"
             />
             <div className="text-cont">
-              <p1 id="balanceAmount" className="cards-passage">
-                Your Balance
-              </p1>
+              <p className="cards-passage">Your Balance</p>
               <br />
-              <p1>Rs {parseInt(income - expense)}</p1>
+              <p testid="balanceAmount">Rs {parseInt(income - expense)}</p>
             </div>
           </div>
 
@@ -128,11 +126,9 @@ class MoneyManager extends Component {
               alt="income"
             />
             <div className="text-cont">
-              <p1 id="incomeAmount" className="cards-passage">
-                Your Income
-              </p1>
+              <p className="cards-passage">Your Income</p>
               <br />
-              <p1>Rs {parseInt(income)}</p1>
+              <p testid="incomeAmount">Rs {parseInt(income)}</p>
             </div>
           </div>
 
@@ -143,11 +139,9 @@ class MoneyManager extends Component {
               alt="expenses"
             />
             <div className="text-cont">
-              <p1 id="expensesAmount" className="cards-passage">
-                Your Expenses
-              </p1>
+              <p className="cards-passage">Your Expenses</p>
               <br />
-              <p1>Rs {parseInt(expense)}</p1>
+              <p testid="expensesAmount">Rs {parseInt(expense)}</p>
             </div>
           </div>
         </div>

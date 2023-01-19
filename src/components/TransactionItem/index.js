@@ -15,7 +15,7 @@ const TransactionItem = props => {
       <p className="trans-paragraph-1">{type}</p>
       <div>
         <button
-          // test-id="delete"
+          testid="delete"
           className="delete-button"
           type="button"
           onClick={onDelete}
